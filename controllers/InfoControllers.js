@@ -52,16 +52,16 @@ exports.getposts =(req,res)=>{
 
 exports.update= (req, res) => {
 console.log("WE ARE UPDATING info")
-const name=req.body.name;
+
 const text=req.body.name;
-const auteur=req.body.auteur;
+const article=req.body.article;
 Mypost.findByIdAndUpdate({_id:req.params._id},{
-    text:req.body.text,
-    name:req.body.name,
-    auteur:req.body.auteur
+    name:req.body.text,
+    
+    article:req.body.articl
 }
    ).then((data)=>{
-const postupdated={text, name, auteur}
+const postupdated={text,article}
     res.json(postupdated)
     console.log("UPDATE SUCCED",postupdated)
 })
@@ -95,3 +95,17 @@ exports.Delete=(req,res)=>{
   
   
   }
+
+  exports.gepostbyID=(req,res)=>{
+    Mypost.findOne({"_id": req.params._id,},function (err,data) {
+        if (err) {
+            err.status = 406;
+            return res.status(406);
+        }
+        console.log(data);
+        return res.status(201).json({
+            message: ' success.',data:data
+        })
+      })
+    
+    }

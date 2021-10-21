@@ -3,36 +3,48 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './post.css';
 import {FaPen,FaEye,FaPlus} from "react-icons/fa";
+import { useParams } from 'react-router';
+import EditePost from './Updatposts'; 
+
 const DetailsPost=(props)=>{
+ const {_id}=useParams();
+ const[showupdate,setShowupdate]=useState(false)
+ const handelshow=()=>{
+  setShowupdate(!showupdate)
+ }
     const {showCreate}=props;
-  const [open,setOpen]=useState([]);
-  const [show,setShow]=useState(false);
+const[post,setPost]=useState({
+  name:"f",
+  auteur:"ff",
+  article:"",
+  text:"f"
+});
   useEffect(() => {
     const expensesListResp = async () => {
-      await axios.get(`/api/notes`)
-      .then(response =>setOpen(response.data))
-   }
+      await axios.get(`/gepostbyID/${_id}`)
+      .then(response =>setPost(response.data.data))
+   console.log("post",post) }
     expensesListResp();
-  });
-    console.log("Heure de travail", open)
-    const handelDelete=(user)=>{
-    axios.delete(`/api/utilisateurs/${user._id}`,)
-      .then()
-      }
+  },[]);
+   
 
 
 return(
 <div className="post-container">
-<div className="header-post">
-    <div className="item" onClick={showCreate}>Create <FaPlus/></div>
-
-    <div className="item">Edite post <FaPen/></div>
-    <div className="item">delete post </div>
-    <div className="item">Full text: {props.article}</div>
+<div className="details-post">
+  <div className="item-details">
+    <div className="item">{post.auteur}</div>
+    <div className="item">Subject: {post.name}</div>
+    <div className="item" onClick={handelshow}>Edite post <FaPen/></div>
     </div>
-    <div className="item"> {props.name}</div>
-<h2>{props.auteur}</h2>
-<p className="text-style">{props.text}</p>
+    <div className="item-details">
+    <p className="text-style">{post.text}</p>
+    <div className="item">Full text: {post.article}</div>
+    </div>
+    </div>
+    
+{showupdate &&(<EditePost _id={_id}/>)}
+
  </div>)
 }
 export default DetailsPost;

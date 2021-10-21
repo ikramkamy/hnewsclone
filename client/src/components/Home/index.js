@@ -35,7 +35,7 @@ return(
 <h1>Welcome to our platform</h1>
 <h1>All post</h1>
 <div className="create" onClick={showCreate}>Create <FaPlus/></div>
-{post.map((e)=><Post name={e.name} text={e.text} auteur={e.auteur} showCreate={showCreate} handelDelete={(()=>handelDelete(e))}/>)}
+{post.map((e)=><Post _id={e._id} name={e.name} text={e.text} auteur={e.auteur} showCreate={showCreate} handelDelete={(()=>handelDelete(e))}/>)}
 
 
 {show &&( <CreatePost showCreate={showCreate}/>)}

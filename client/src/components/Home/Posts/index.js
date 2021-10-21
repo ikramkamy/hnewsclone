@@ -15,7 +15,7 @@ return(
 <div className="wrap-options">
     <div className="item">Edite post <FaPen/></div>
     <div className="item">delete post <FaTrash onClick={handelDelete}/></div>
-    <div className="item"><Link to="/detailsPost">Details </Link><FaEye/></div>
+    <div className="item"><Link to={`/detailsPost/${props._id}`}>Details </Link><FaEye/></div>
     </div>
 <div className="header-post">
 <div className="item"> {props.name}</div>

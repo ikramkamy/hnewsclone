@@ -53,12 +53,12 @@ exports.getposts =(req,res)=>{
 exports.update= (req, res) => {
 console.log("WE ARE UPDATING info")
 
-const text=req.body.name;
+const text=req.body.text;
 const article=req.body.article;
 Mypost.findByIdAndUpdate({_id:req.params._id},{
-    name:req.body.text,
+    text:req.body.text,
     
-    article:req.body.articl
+    article:req.body.article
 }
    ).then((data)=>{
 const postupdated={text,article}

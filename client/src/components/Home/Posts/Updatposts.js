@@ -4,7 +4,7 @@ import axios from 'axios';
 import {FaCross, FaLock} from "react-icons/fa";
 import { useParams } from 'react-router';
 const EditePost=(props)=>{
- const {showCreate}=props;
+ const { handelshow}=props;
  const update=()=>{
    
   axios.post(`/udpdatpost/${props._id}`,{
@@ -35,11 +35,11 @@ const[input,setInput]=useState({
 console.log("INPUT",input)
 return(
 <div className="postCreate-container">
-  <div className="lock-container"><FaLock onClick={showCreate}/></div>
+  <div className="lock-container"><FaLock onClick={ handelshow}/></div>
 <input name="text" type="text" value={input.text} placeholder="enter your text here" onChange={handelChange}/>
 
 <textarea className="text-area" name="article" type="text" value={input.article} placeholder="article"  onChange={handelChange}/>
-<button onClick={update}>Update POST </button>
+<button onClick={update}>Update POST</button>
  </div>)
 }
 export default EditePost;

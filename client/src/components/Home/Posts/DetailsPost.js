@@ -43,7 +43,7 @@ return(
     </div>
     </div>
     
-{showupdate &&(<EditePost _id={_id}/>)}
+{showupdate &&(<EditePost _id={_id}   handelshow={handelshow} />)}
 
  </div>)
 }

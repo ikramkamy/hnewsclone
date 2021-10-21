@@ -1,0 +1,77 @@
+.post-container{
+    width: 90%;
+    border: 1px solid lightgray;
+    display: flex;
+    margin-bottom: 20px;
+}
+.text-style{
+    text-align: center;
+    color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+.header-post{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.item{
+    cursor: pointer;
+    margin-bottom: 30px;
+    display: flex;
+    width: 100px;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-top: 10px;
+
+}
+.item:hover{
+    color: red;
+}
+.postCreate-container{
+
+    height: fit-content ;
+    width: 500px;
+    border: 1px solid lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top:10px;
+    background-color: white;
+}
+input{
+    height: 50px;
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid lightgray;
+}
+button{
+    height: 50px;
+    font-size: 1.11em;
+    font-weight: 700;
+    border-radius: 5px;
+    margin: 10px 10px 10px 10px ;
+    width: 300px;
+    cursor: pointer;
+    background-color: goldenrod;
+    color: white;
+}
+.lock-container{
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    color: goldenrod;
+    cursor: pointer;
+}
+.wrap-options{
+    display: flex;
+    flex-direction: column;
+}
+.text-area{
+    height: 400px;
+    width: 400px;
+}
